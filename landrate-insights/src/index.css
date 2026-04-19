@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('leaflet/dist/leaflet.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 96%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    --primary: 160 84% 30%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 91% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 15% 92%;
+    --muted-foreground: 215 15% 50%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 90%;
+    --input: 214 20% 90%;
+    --ring: 160 84% 30%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 215 28% 14%;
+    --sidebar-foreground: 210 15% 85%;
+    --sidebar-primary: 160 84% 39%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 25% 20%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 215 20% 22%;
+    --sidebar-ring: 160 84% 39%;
+    --sidebar-muted: 215 15% 40%;
+
+    /* Custom tokens */
+    --emerald: 160 84% 39%;
+    --emerald-light: 160 60% 94%;
+    --blue: 217 91% 50%;
+    --blue-light: 217 60% 94%;
+    --amber: 38 92% 50%;
+    --amber-light: 38 60% 94%;
+    --teal: 175 70% 40%;
+    --teal-light: 175 50% 93%;
+    --risk-high: 0 72% 51%;
+    --risk-moderate: 38 92% 50%;
+    --risk-low: 142 71% 45%;
+
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+    --shadow-card-hover: 0 4px 12px 0 rgb(0 0 0 / 0.06), 0 2px 4px -1px rgb(0 0 0 / 0.04);
+    --shadow-glass: 0 8px 32px 0 rgb(0 0 0 / 0.06);
+  }
+
+  .dark {
+    --background: 215 28% 10%;
+    --foreground: 210 15% 92%;
+    --card: 215 28% 14%;
+    --card-foreground: 210 15% 92%;
+    --popover: 215 28% 14%;
+    --popover-foreground: 210 15% 92%;
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 91% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 215 20% 20%;
+    --muted-foreground: 215 15% 55%;
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 215 20% 22%;
+    --input: 215 20% 22%;
+    --ring: 160 84% 39%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl;
+    box-shadow: var(--shadow-card);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300;
+  }
+
+  .glass-card-hover:hover {
+    box-shadow: var(--shadow-card-hover);
+    @apply -translate-y-0.5;
+  }
+
+  .stat-card {
+    @apply glass-card p-6 relative overflow-hidden;
+  }
+
+  .stat-card::before {
+    content: '';
+    @apply absolute top-0 left-0 w-1 h-full;
+  }
+
+  .stat-card-emerald::before {
+    @apply bg-primary;
+  }
+
+  .stat-card-blue::before {
+    background: hsl(var(--blue));
+  }
+
+  .stat-card-amber::before {
+    background: hsl(var(--amber));
+  }
+
+  .badge-emerald {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    background: hsl(var(--emerald-light));
+    color: hsl(var(--emerald));
+  }
+
+  .badge-blue {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    background: hsl(var(--blue-light));
+    color: hsl(var(--blue));
+  }
+
+  .badge-teal {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    background: hsl(var(--teal-light));
+    color: hsl(var(--teal));
+  }
+
+  .badge-amber {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    background: hsl(var(--amber-light));
+    color: hsl(var(--amber));
+  }
+
+  .risk-border-high {
+    border-left: 4px solid hsl(var(--risk-high));
+  }
+
+  .risk-border-moderate {
+    border-left: 4px solid hsl(var(--risk-moderate));
+  }
+
+  .risk-border-low {
+    border-left: 4px solid hsl(var(--risk-low));
+  }
+}

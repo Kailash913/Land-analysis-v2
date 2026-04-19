@@ -1,0 +1,15 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+httpx==0.28.1
+motor==3.6.0
+beanie==1.27.0
+python-dotenv==1.0.1
+scikit-learn==1.6.1
+numpy==2.2.1
+pandas==2.2.3
+bcrypt==4.2.1
+python-jose[cryptography]==3.3.0
+python-multipart==0.0.20
+reportlab==4.2.5
+pydantic==2.10.4
+pydantic-settings==2.7.1

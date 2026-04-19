@@ -1,0 +1,10 @@
+node_modules/
+.env
+__pycache__/
+*.log
+dist/
+build/
+*.zip
+*.pt
+*.pth
+*.h5
